@@ -6,7 +6,8 @@
 	"scripts": {
 		"dev": "next",
 		"build": "next build",
-		"start": "next start"
+		"start": "next start",
+		"dev:inspect": "NODE_OPTIONS='--inspect' next"
 	},
 	"keywords": [],
 	"author": "",
