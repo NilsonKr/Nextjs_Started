@@ -1,16 +1,12 @@
-import React from 'react'
-import { useRouter } from 'next/router'
+import NavBar from '../../components/NavBar';
 
 const avocado = () => {
-  const router = useRouter()
+	return (
+		<div>
+			<NavBar />
+			<h1>Hey You are on the Avocado Section </h1>
+		</div>
+	);
+};
 
-  console.log(router)
-  
-  return (
-    <div>
-      <h1>Hey You are on the Avocado Section </h1>
-    </div>
-  )
-}
-
-export default avocado
+export default avocado;
