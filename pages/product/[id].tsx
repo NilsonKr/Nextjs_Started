@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
+import { GetServerSideProps } from 'next';
 
 import AvoDescription from '@components/AvoDescription';
+
+// export const getServerSideProps: GetServerSideProps = async context => {
+// 	console.log(context.params);
+
+// 	return {
+// 		props: {},
+// 	};
+// };
 
 const ProductDetails = () => {
 	const [details, setDetails] = useState<TProduct>({} as TProduct);

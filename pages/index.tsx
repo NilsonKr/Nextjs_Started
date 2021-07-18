@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -6,24 +7,25 @@ import Avocado from '@components/SVGIcons/Avocado';
 
 import { ProductsListStyled, ProductItemStyled } from '@components/styles/AvoHome';
 
-const Home = () => {
-	const [products, setProducts] = useState<TProduct[]>([]);
+export const getServerSideProps: GetServerSideProps = async context => {
+	const response = await fetch('http://localhost:3000/api/avo');
+	const { data: ProductList }: TAPIAvoResponse = await response.json();
 
-	useEffect(() => {
-		fetch('/api/avo')
-			.then(response => response.json())
-			.then(({ data }) => setProducts(data));
-	}, []);
+	return {
+		props: { ProductList },
+	};
+};
 
+const Home = ({ ProductList }: { ProductList: TProduct[] }) => {
 	return (
 		<div className='home_container'>
 			<h1>
 				Time For the Next <Avocado size='50px' style={{ verticalAlign: 'bottom' }} /> !
 			</h1>
 			<ProductsListStyled>
-				{products.map(product => (
-					<ProductItemStyled>
-						<Link href={`/product/${product.id}`} key={product.id}>
+				{ProductList.map(product => (
+					<ProductItemStyled key={product.id}>
+						<Link href={`/product/${product.id}`}>
 							<a>
 								<Image
 									src={product.image}
