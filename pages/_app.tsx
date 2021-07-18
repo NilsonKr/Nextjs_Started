@@ -24,6 +24,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 							background: #f5f5f5;
 							font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 						}
+
+						::selection {
+							background-color: #6affeb;
+							color: #5a5a5a;
+						}
 					`}
 				</style>
 			</Layout>

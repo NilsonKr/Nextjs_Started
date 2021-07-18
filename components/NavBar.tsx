@@ -7,10 +7,16 @@ const NavBar = () => {
 		<LinkStyled>
 			<menu>
 				<Link href='/'>
-					<a> Home </a>
+					<a>
+						<p>Home</p>
+						<div className='underscore--hover'></div>
+					</a>
 				</Link>
 				<Link href='/about'>
-					<a> About </a>
+					<a>
+						<p>About</p>
+						<div className='underscore--hover'></div>
+					</a>
 				</Link>
 			</menu>
 		</LinkStyled>

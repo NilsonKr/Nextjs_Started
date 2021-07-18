@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import ProductListStyled from '@components/styles/ProductList';
+import Avocado from '@components/SVGIcons/Avocado';
+
+import { ProductsListStyled, ProductItemStyled } from '@components/styles/AvoHome';
 
 const Home = () => {
 	const [products, setProducts] = useState<TProduct[]>([]);
@@ -15,32 +17,39 @@ const Home = () => {
 
 	return (
 		<div className='home_container'>
-			<h1> Hello From Next.js ! </h1>
-			<ProductListStyled>
+			<h1>
+				Time For the Next <Avocado size='50px' style={{ verticalAlign: 'bottom' }} /> !
+			</h1>
+			<ProductsListStyled>
 				{products.map(product => (
-					<Link href={`/product/${product.id}`} key={product.id}>
-						<a className='product_link'>
-							<img src={product.image} />
+					<ProductItemStyled>
+						<Link href={`/product/${product.id}`} key={product.id}>
+							<a>
+								<Image
+									src={product.image}
+									blurDataURL={product.image}
+									width='300px'
+									height='300px'
+									alt={product.name}
+									placeholder='blur'
+								/>
+							</a>
+						</Link>
+						<div className='description'>
 							<h3>{product.name}</h3>
 							<em>{product.price}</em>
-						</a>
-					</Link>
+						</div>
+					</ProductItemStyled>
 				))}
-			</ProductListStyled>
+			</ProductsListStyled>
 			<style jsx>{`
 				.home_container {
 					width: 100%;
+					margin-top: 35px;
 					display: flex;
 					flex-flow: column;
 					justify-content: space-around;
 					align-items: center;
-				}
-
-				.product_link {
-					display: block;
-					margin: 5px 0;
-					text-decoration: none;
-					color: #15ffb9;
 				}
 			`}</style>
 		</div>
