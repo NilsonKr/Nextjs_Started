@@ -19,3 +19,25 @@ export const ColophonStyled = styled.section`
 		color: #00dbbe;
 	}
 `;
+
+export const ReferencesStyled = styled.section`
+	width: 40%;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 40px;
+
+	div {
+		text-align: center;
+	}
+
+	a {
+		text-decoration: none;
+		font-weight: bold;
+		color: black;
+		margin: 0 3px;
+	}
+
+	.nextjs_course a {
+		color: #0075f4;
+	}
+`;

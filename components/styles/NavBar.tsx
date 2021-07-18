@@ -1,12 +1,24 @@
 import styled from 'styled-components';
 
 export default styled.nav`
-	padding: 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 30px;
 	width: 100%;
 	border-bottom: 2px solid #5a5a5a2b;
 
 	menu {
 		display: flex;
+	}
+
+	.shop_basket span {
+		margin-right: 5px;
+		font-size: 2rem;
+		font-weight: bold;
+		-webkit-text-stroke: black;
+		-webkit-text-stroke-width: 2px;
+		-webkit-text-fill-color: #2efadf;
 	}
 
 	a {

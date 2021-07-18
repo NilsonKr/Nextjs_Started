@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import Basket from './SVGIcons/Basket';
 import LinkStyled from './styles/NavBar';
 
 const NavBar = () => {
@@ -19,6 +20,10 @@ const NavBar = () => {
 					</a>
 				</Link>
 			</menu>
+			<div className='shop_basket'>
+				<span>0</span>
+				<Basket size='60px' />
+			</div>
 		</LinkStyled>
 	);
 };
