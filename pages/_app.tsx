@@ -1,26 +1,33 @@
 import { AppProps } from 'next/app';
+import Head from 'next/head';
 
 import Layout from '@components/Layout';
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
-		<Layout>
-			<Component {...pageProps} />
-			<style global jsx>
-				{`
-					* {
-						box-sizing: border-box;
-						margin: 0;
-						padding: 0;
-					}
+		<>
+			<Head>
+				<title>NextJs Avo</title>
+			</Head>
 
-					body {
-						background: #f5f5f5;
-						font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-					}
-				`}
-			</style>
-		</Layout>
+			<Layout>
+				<Component {...pageProps} />
+				<style global jsx>
+					{`
+						* {
+							box-sizing: border-box;
+							margin: 0;
+							padding: 0;
+						}
+
+						body {
+							background: #f5f5f5;
+							font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+						}
+					`}
+				</style>
+			</Layout>
+		</>
 	);
 }
 

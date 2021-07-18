@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import ProductListStyled from '@components/styles/ProductList';
 
@@ -19,7 +20,9 @@ const Home = () => {
 				{products.map(product => (
 					<Link href={`/product/${product.id}`} key={product.id}>
 						<a className='product_link'>
+							<img src={product.image} />
 							<h3>{product.name}</h3>
+							<em>{product.price}</em>
 						</a>
 					</Link>
 				))}
@@ -27,7 +30,6 @@ const Home = () => {
 			<style jsx>{`
 				.home_container {
 					width: 100%;
-					height: 60vh;
 					display: flex;
 					flex-flow: column;
 					justify-content: space-around;
