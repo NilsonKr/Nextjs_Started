@@ -1,8 +1,9 @@
 {
 	"compilerOptions": {
-		"baseUrl": ".",
+		"baseUrl": "./",
 		"paths": {
-			"@database": ["database/db.ts"]
+			"@database": ["database/db.ts"],
+			"@components/*": ["components/*"]
 		},
 		"target": "es6",
 		"lib": ["dom", "dom.iterable", "esnext"],

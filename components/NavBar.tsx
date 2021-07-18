@@ -1,8 +1,10 @@
 import Link from 'next/link';
 
+import LinkStyled from './styles/NavBar';
+
 const NavBar = () => {
 	return (
-		<nav>
+		<LinkStyled>
 			<menu>
 				<Link href='/'>
 					<a> Home </a>
@@ -11,7 +13,7 @@ const NavBar = () => {
 					<a> About </a>
 				</Link>
 			</menu>
-		</nav>
+		</LinkStyled>
 	);
 };
 
