@@ -1,37 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps, GetStaticPaths } from 'next';
 
 import AvoDescription from '@components/AvoDescription';
 
-// export const getServerSideProps: GetServerSideProps = async context => {
-// 	console.log(context.params);
+export const getStaticPaths: GetStaticPaths = async () => {
+	const response = await fetch(`https://platzi-avo.vercel.app/api/avo`);
+	const { data: products }: TAPIAvoResponse = await response.json();
+	const paths = products.map(p => ({ params: { id: p.id } }));
 
-// 	return {
-// 		props: {},
-// 	};
-// };
+	return {
+		paths: paths,
+		fallback: false,
+	};
+};
 
-const ProductDetails = () => {
-	const [details, setDetails] = useState<TProduct>({} as TProduct);
-	const router = useRouter();
-	//Retrieve id of avocado
-	const productId = router.query.id;
+export const getStaticProps: GetStaticProps = async context => {
+	const response = await fetch(
+		`https://platzi-avo.vercel.app/api/avo/${context.params!.id}`
+	);
+	const product: TProduct = await response.json();
 
-	useEffect(() => {
-		if (productId) {
-			fetch(`/api/avo/${productId}`)
-				.then(res => res.json())
-				.then(data => setDetails(data))
-				.catch(err => console.log(err));
-		}
-	}, [productId]);
+	return {
+		props: { product },
+	};
+};
 
+const ProductDetails = ({ product }: { product: TProduct }) => {
 	return (
 		<div>
-			{details.id && (
+			{product.id && (
 				<>
-					<AvoDescription description={details} />
+					<AvoDescription description={product} />
 				</>
 			)}
 		</div>

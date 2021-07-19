@@ -7,7 +7,7 @@ import Avocado from '@components/SVGIcons/Avocado';
 
 import { ProductsListStyled, ProductItemStyled } from '@components/styles/AvoHome';
 
-export const getStaticProps: GetStaticProps = async context => {
+export const getStaticProps: GetStaticProps = async () => {
 	const response = await fetch('https://platzi-avo.vercel.app/api/avo');
 	const { data: ProductList }: TAPIAvoResponse = await response.json();
 
