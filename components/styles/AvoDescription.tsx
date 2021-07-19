@@ -52,7 +52,6 @@ export const AddFieldStyled = styled.div`
 export const AboutStyled = styled.div`
 	max-width: 700px;
 	padding: 20px;
-	background-color: #e6e6e6;
 	border-radius: 10px;
 	margin: 0 auto;
 	font-style: italic;
@@ -67,7 +66,28 @@ export const AboutStyled = styled.div`
 	}
 
 	p {
-		margin-top: 5px;
+		margin-top: 10px;
 		color: #535353ce;
+	}
+`;
+
+export const AttributesTableStyled = styled.section`
+	display: grid;
+	grid-template-columns: 1fr 550px;
+	max-width: 700px;
+	margin: 20px auto;
+	border: 1px solid #5a5a5a2b;
+	border-radius: 10px;
+
+	h2 {
+		font-size: 1.3rem;
+		font-weight: normal;
+		padding: 10px;
+		border-right: 1px solid #5a5a5a2b;
+	}
+	p {
+		text-align: center;
+		padding: 10px;
+		border-bottom: 1px solid #5a5a5a2b;
 	}
 `;

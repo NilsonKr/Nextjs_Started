@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -7,8 +7,8 @@ import Avocado from '@components/SVGIcons/Avocado';
 
 import { ProductsListStyled, ProductItemStyled } from '@components/styles/AvoHome';
 
-export const getServerSideProps: GetServerSideProps = async context => {
-	const response = await fetch('http://localhost:3000/api/avo');
+export const getStaticProps: GetStaticProps = async context => {
+	const response = await fetch('https://platzi-avo.vercel.app/api/avo');
 	const { data: ProductList }: TAPIAvoResponse = await response.json();
 
 	return {

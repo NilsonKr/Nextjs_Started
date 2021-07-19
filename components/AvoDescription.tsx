@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { GeneralDescStyled, AddFieldStyled, AboutStyled } from './styles/AvoDescription';
+import {
+	GeneralDescStyled,
+	AddFieldStyled,
+	AboutStyled,
+	AttributesTableStyled,
+} from './styles/AvoDescription';
 
 type AvoProps = {
 	description: TProduct;
@@ -50,6 +55,14 @@ const AvoDescription = ({ description }: AvoProps) => {
 				<h2>About</h2>
 				<p>{description.attributes.description}</p>
 			</AboutStyled>
+			<AttributesTableStyled>
+				<h2>Hardiness</h2>
+				<p>{description.attributes.hardiness}</p>
+				<h2>Shape</h2>
+				<p>{description.attributes.shape}</p>
+				<h2>Taste</h2>
+				<p>{description.attributes.taste}</p>
+			</AttributesTableStyled>
 		</main>
 	);
 };
