@@ -1,0 +1,10 @@
+/**
+* Hi curious unexpected person :3
+* This a CSS Trick to keep the footer at the bottom.
+* Find out more modern CSS tricks at:
+* https://moderncss.dev/
+*/
+#__next {
+	display: grid;
+	min-height: 100vh;
+}

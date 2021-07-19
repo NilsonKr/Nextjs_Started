@@ -7,6 +7,8 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import ShopItemsProvider from '../context/ShopCart';
 import Layout from '@components/Layout';
 
+import '../global.css';
+
 library.add(fab, faShoppingCart);
 
 function MyApp({ Component, pageProps }: AppProps) {
