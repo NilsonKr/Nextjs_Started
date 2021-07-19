@@ -1,9 +1,13 @@
+import { useContext } from 'react';
+import { Context } from '../context/ShopCart';
 import Link from 'next/link';
 
 import Basket from './SVGIcons/Basket';
 import LinkStyled from './styles/NavBar';
 
 const NavBar = () => {
+	const { cartItems } = useContext(Context);
+
 	return (
 		<LinkStyled>
 			<menu>

@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
+import { useContext } from 'react';
+import { Context } from '../context/ShopCart';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -15,6 +17,7 @@ type AvoProps = {
 
 const AvoDescription = ({ description }: AvoProps) => {
 	const [quantity, setQuantity] = useState<number>(1);
+	const { addItemToCart } = useContext(Context);
 
 	const handleChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
 		if (ev.target.valueAsNumber < 1 || isNaN(ev.target.valueAsNumber)) {
@@ -45,7 +48,7 @@ const AvoDescription = ({ description }: AvoProps) => {
 							value={quantity}
 							onChange={handleChange}
 						/>
-						<button>
+						<button onClick={() => addItemToCart(description, quantity)}>
 							<FontAwesomeIcon icon='shopping-cart' size='1x' /> Add To Cart
 						</button>
 					</AddFieldStyled>

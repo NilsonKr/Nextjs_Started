@@ -4,6 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
+import ShopItemsProvider from '../context/ShopCart';
 import Layout from '@components/Layout';
 
 library.add(fab, faShoppingCart);
@@ -14,29 +15,30 @@ function MyApp({ Component, pageProps }: AppProps) {
 			<Head>
 				<title>NextJs Avo</title>
 			</Head>
+			<ShopItemsProvider>
+				<Layout>
+					<Component {...pageProps} />
+					<style global jsx>
+						{`
+							* {
+								box-sizing: border-box;
+								margin: 0;
+								padding: 0;
+							}
 
-			<Layout>
-				<Component {...pageProps} />
-				<style global jsx>
-					{`
-						* {
-							box-sizing: border-box;
-							margin: 0;
-							padding: 0;
-						}
+							body {
+								background: #f5f5f5;
+								font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+							}
 
-						body {
-							background: #f5f5f5;
-							font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-						}
-
-						::selection {
-							background-color: #6affeb;
-							color: #5a5a5a;
-						}
-					`}
-				</style>
-			</Layout>
+							::selection {
+								background-color: #6affeb;
+								color: #5a5a5a;
+							}
+						`}
+					</style>
+				</Layout>
+			</ShopItemsProvider>
 		</>
 	);
 }

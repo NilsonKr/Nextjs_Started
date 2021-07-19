@@ -26,3 +26,7 @@ type TAPIAvoResponse = {
 	data: TProduct[];
 	error?: string;
 };
+
+interface TCartItem extends TProduct {
+	quantity: number;
+}
