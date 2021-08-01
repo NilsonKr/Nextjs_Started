@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { FooterStyled, ColophonStyled, ReferencesStyled } from './styles/Footer';
 
-const Footer = () => {
+const Footer: FC = () => {
 	return (
 		<FooterStyled>
 			<ReferencesStyled>
