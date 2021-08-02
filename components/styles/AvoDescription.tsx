@@ -37,12 +37,16 @@ export const AddFieldStyled = styled.div`
 		outline: none;
 		border: none;
 		padding: 7px;
-		background-color: #27c2ff;
+		background-color: #00b7ff;
 		color: white;
 		border-radius: 0;
 		border-bottom-right-radius: 10px;
 		border-top-right-radius: 10px;
 		cursor: pointer;
+	}
+
+	button[disabled] {
+		opacity: 0.3;
 	}
 
 	input:focus {

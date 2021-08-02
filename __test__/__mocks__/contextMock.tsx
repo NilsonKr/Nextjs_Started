@@ -34,8 +34,12 @@ const cartItems: TCartItem[] = [
 	},
 ];
 
+export const addItemToCart = jest.fn();
+
 const ShopCartMock: React.FC = ({ children }) => {
-	return <Context.Provider value={{ cartItems }}>{children}</Context.Provider>;
+	return (
+		<Context.Provider value={{ cartItems, addItemToCart }}>{children}</Context.Provider>
+	);
 };
 
 export default ShopCartMock;

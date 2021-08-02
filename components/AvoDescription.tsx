@@ -16,15 +16,17 @@ type AvoProps = {
 };
 
 const AvoDescription = ({ description }: AvoProps) => {
-	const [quantity, setQuantity] = useState<number>(1);
+	const [quantity, setQuantity] = useState<number | string>('');
 	const { addItemToCart } = useContext(Context);
 
 	const handleChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
-		if (ev.target.valueAsNumber < 1 || isNaN(ev.target.valueAsNumber)) {
-			return;
-		}
+		const target = ev.target;
 
-		setQuantity(ev.target.valueAsNumber);
+		if (target.valueAsNumber < 0) {
+			return;
+		} else {
+			setQuantity(target.value);
+		}
 	};
 
 	return (
@@ -46,9 +48,13 @@ const AvoDescription = ({ description }: AvoProps) => {
 							type='number'
 							name='Quantity'
 							value={quantity}
+							placeholder='0'
 							onChange={handleChange}
 						/>
-						<button onClick={() => addItemToCart!(description, quantity)}>
+						<button
+							disabled={!quantity || quantity === '0' ? true : false}
+							onClick={() => addItemToCart!(description, Number(quantity))}
+						>
 							<FontAwesomeIcon icon='shopping-cart' size='1x' /> Add To Cart
 						</button>
 					</AddFieldStyled>
