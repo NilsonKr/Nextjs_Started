@@ -1,4 +1,4 @@
-import useProductsQuantity from '../hooks/getProductsQuantity';
+import useProductsQuantity from '../hooks/useProductsQuantity';
 import Link from 'next/link';
 
 import Basket from './SVGIcons/Basket';

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import { prettyDOM } from '@testing-library/dom';
 import '@testing-library/jest-dom/extend-expect';
-import Footer from '../components/Footer';
+import { prettyDOM } from '@testing-library/dom';
+import Footer from '../../components/Footer';
 
 describe('<Footer /> ', () => {
 	beforeEach(() => {
