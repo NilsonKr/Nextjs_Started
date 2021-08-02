@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { useContext } from 'react';
 import { Context } from '../context/ShopCart';
@@ -48,7 +48,7 @@ const AvoDescription = ({ description }: AvoProps) => {
 							value={quantity}
 							onChange={handleChange}
 						/>
-						<button onClick={() => addItemToCart(description, quantity)}>
+						<button onClick={() => addItemToCart!(description, quantity)}>
 							<FontAwesomeIcon icon='shopping-cart' size='1x' /> Add To Cart
 						</button>
 					</AddFieldStyled>
