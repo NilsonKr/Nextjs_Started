@@ -42,6 +42,7 @@ export const AddFieldStyled = styled.div`
 		border-radius: 0;
 		border-bottom-right-radius: 10px;
 		border-top-right-radius: 10px;
+		cursor: pointer;
 	}
 
 	input:focus {

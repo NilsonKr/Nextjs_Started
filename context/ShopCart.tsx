@@ -1,6 +1,11 @@
 import React, { useReducer } from 'react';
 
-export const Context: any = React.createContext(null);
+type TypeContext = {
+	cartItems: TCartItem[];
+	addItemToCart: (item: TProduct, quantity: number) => void;
+};
+
+export const Context = React.createContext<Partial<TypeContext>>({ cartItems: [] });
 
 type ReducerAction = {
 	type: 'addItem' | 'removeItem' | 'updateItem';
