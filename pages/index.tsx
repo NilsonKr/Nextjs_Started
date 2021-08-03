@@ -24,7 +24,7 @@ const Home = ({ ProductList }: { ProductList: TProduct[] }) => {
 			</h1>
 			<ProductsListStyled>
 				{ProductList.map(product => (
-					<ProductItemStyled key={product.id}>
+					<ProductItemStyled key={product.id} aria-label='product'>
 						<Link href={`/product/${product.id}`}>
 							<a>
 								<Image
@@ -39,7 +39,7 @@ const Home = ({ ProductList }: { ProductList: TProduct[] }) => {
 						</Link>
 						<div className='description'>
 							<h3>{product.name}</h3>
-							<em>{product.price}</em>
+							<em>{product.price}$</em>
 						</div>
 					</ProductItemStyled>
 				))}
