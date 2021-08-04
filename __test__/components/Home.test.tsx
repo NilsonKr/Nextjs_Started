@@ -1,6 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { prettyDOM } from '@testing-library/dom';
-import userEvent from '@testing-library/user-event';
+import { render, screen } from '@testing-library/react';
 
 import Home from '../../pages/index';
 import { ProductListMock } from '../__mocks__/ProductMock';

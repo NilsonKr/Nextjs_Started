@@ -44,7 +44,7 @@ describe('<AvoDescription />', () => {
 
 		expect(addItemToCart).not.toHaveBeenCalled();
 
-		userEvent.type(input, '0');
+		userEvent.type(input, '-1');
 
 		fireEvent.click(buttonAdd);
 

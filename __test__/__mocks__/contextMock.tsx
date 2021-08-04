@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactChildren, ReactElement } from 'react';
 import { Context } from '../../context/ShopCart';
 
 const cartItems: TCartItem[] = [
@@ -36,9 +36,13 @@ const cartItems: TCartItem[] = [
 
 export const addItemToCart = jest.fn();
 
-const ShopCartMock: React.FC = ({ children }) => {
+type props = { initialItems?: TCartItem[] };
+
+const ShopCartMock: React.FC<props> = ({ children, initialItems = cartItems }) => {
 	return (
-		<Context.Provider value={{ cartItems, addItemToCart }}>{children}</Context.Provider>
+		<Context.Provider value={{ cartItems: initialItems, addItemToCart }}>
+			{children}
+		</Context.Provider>
 	);
 };
 
